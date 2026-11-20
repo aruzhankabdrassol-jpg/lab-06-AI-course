@@ -1,0 +1,52 @@
+{
+  "harness_controls": [
+    "validate_input",
+    "blind",
+    "refuse",
+    "log",
+    "escalate"
+  ],
+  "format_problems": [],
+  "entries": [
+    {
+      "control": "validate_input",
+      "principle": "Data quality and harm prevention",
+      "principle_source": "UNESCO Recommendation on the Ethics of Artificial Intelligence, 2021, paragraphs 25-27",
+      "instrument": "Law of the Republic of Kazakhstan No. 94-V of 21 May 2013 On Personal Data and their Protection",
+      "provision": "Article 12(2) and Article 25(2)(1)-(2)",
+      "why_here": "Input validation rejects impossible applicant values before inference so that screening relies only on reliable, accurate, and necessary data."
+    },
+    {
+      "control": "blind",
+      "principle": "Fairness and non-discrimination",
+      "principle_source": "UNESCO Recommendation on the Ethics of Artificial Intelligence, 2021, paragraphs 28-30",
+      "instrument": "Constitution of the Republic of Kazakhstan (adopted 30 August 1995, as amended)",
+      "provision": "Article 14(1)-(2)",
+      "why_here": "Hiding name and university removes identity cues that produced a +2.5 score gap favoring flagship universities (p = 0.002) and 10.0% decision flips on gender-coded names."
+    },
+    {
+      "control": "refuse",
+      "principle": "Respect for human autonomy and informed consent",
+      "principle_source": "UNESCO Recommendation on the Ethics of Artificial Intelligence, 2021, paragraphs 32-34",
+      "instrument": "Law of the Republic of Kazakhstan No. 94-V of 21 May 2013 On Personal Data and their Protection",
+      "provision": "Article 7(1), Article 12(1), and Article 22(1)",
+      "why_here": "Pre-model refusal blocks unauthorized screening purposes, minors under 18, unconsented profiles, and prompt-injection payloads without calling the LLM."
+    },
+    {
+      "control": "log",
+      "principle": "Transparency and accountability",
+      "principle_source": "UNESCO Recommendation on the Ethics of Artificial Intelligence, 2021, paragraphs 37-43",
+      "instrument": "Law of the Republic of Kazakhstan No. 94-V of 21 May 2013 On Personal Data and their Protection",
+      "provision": "Article 24(1)(3) and Article 25(2)(1)-(2)",
+      "why_here": "The append-only JSONL log records controls, hashes, and outcomes for every request so decisions can be audited later without duplicating raw applicant PII."
+    },
+    {
+      "control": "escalate",
+      "principle": "Human oversight and determination",
+      "principle_source": "UNESCO Recommendation on the Ethics of Artificial Intelligence, 2021, paragraphs 35-36 and 43",
+      "instrument": "Law of the Republic of Kazakhstan No. 94-V of 21 May 2013 On Personal Data and their Protection (and Administrative Procedural and Process-Related Code No. 350-VI of 29 June 2020)",
+      "provision": "Law No. 94-V Article 24(1)(4) and Article 24(1)(6); APPC Article 73(1)",
+      "why_here": "Routing borderline scores (45-60), unparseable outputs, and protected-attribute rationales to human reviewers preserves the applicant's right to contest automated outcomes."
+    }
+  ]
+}
